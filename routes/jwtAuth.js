@@ -10,7 +10,10 @@ const authorize = require("../middleware/authorize");
 
 router.post("/register", validInfo, async (req, res) => {
   const { email, name, password } = req.body;
-
+  console.log({
+    status: 'receiving at /register',
+    email, name,password
+  });
   try {
     const user = await pool.query("SELECT * FROM users WHERE user_email = $1", [
       email
@@ -27,9 +30,12 @@ router.post("/register", validInfo, async (req, res) => {
       "INSERT INTO users (user_name, user_email, user_password) VALUES ($1, $2, $3) RETURNING *",
       [name, email, bcryptPassword]
     );
-// create jwtToken
+    // create jwtToken
     const jwtToken = jwtGenerator(newUser.rows[0].user_id);
-
+    console.log({
+      status: 'sending a successful response at /register',
+      jwtToken
+    });
     return res.json({ jwtToken });
   } catch (err) {
     console.error(err.message);
