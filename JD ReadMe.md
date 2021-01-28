@@ -37,3 +37,8 @@ require process.env ``` require('dotenv').config(); ``` and add required process
 ## .env
 
 ``` DATABASE_URL=postgres://gfsjtmbdcflimh:7456d26613d9422a0f4f8f7934eeef3c26a288659c827254855b1bf84cd28328@ec2-54-228-170-125.eu-west-1.compute.amazonaws.com:5432/d44ms0q9va233b ```
+
+
+loginwith:
+henryly213@gmail.com
+kthl8822   
