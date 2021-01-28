@@ -1,4 +1,5 @@
 const Pool = require("pg").Pool;
+require('dotenv').config();
 
 let DATABASE_URL = {
   host: "localhost",
@@ -11,6 +12,12 @@ let DATABASE_URL = {
 if (process.env.NODE_ENV === 'production') {
   DATABASE_URL = process.env.DATABASE_URL
 }
+
+console.log({
+  nodeEnv: process.env.NODE_ENV,
+  DATABASE_URL,
+  processEnvDatabaseUrl: process.env.DATABASE_URL
+});
 
 const pool = new Pool(DATABASE_URL);
 
