@@ -10,15 +10,19 @@ let DATABASE_URL = {
 }
 
 if (process.env.NODE_ENV === 'production') {
+  console.log({
+    status: "IF has worked and now we're changinge DATABASE_URL",
+    DATABASE_URL,
+  });
   DATABASE_URL = process.env.DATABASE_URL
 }
 
-console.log({
-  nodeEnv: process.env.NODE_ENV,
-  DATABASE_URL,
-  processEnvDatabaseUrl: process.env.DATABASE_URL
-});
-
 const pool = new Pool(DATABASE_URL);
+
+
+console.log({
+  status: "We've fired Pool and now exporting with a DATABASE_URL of:",
+  DATABASE_URL,
+});
 
 module.exports = pool;

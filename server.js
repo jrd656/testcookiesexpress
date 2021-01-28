@@ -1,12 +1,6 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-require('dotenv').config();
-
-console.log({
-  nodeEnv: process.env.NODE_ENV,
-  processEnvDatabaseUrl: process.env.DATABASE_URL
-});
 
 //middleware
 var whitelist = [
