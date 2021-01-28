@@ -5,7 +5,7 @@ const cors = require("cors");
 //middleware
 var whitelist = [
   'http://localhost:3000',
-  'https://testsafaricookies.web.app/',
+  'https://testsafaricookies.web.app',
 ]
 
 const corsOptions = {
